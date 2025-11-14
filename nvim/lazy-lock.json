@@ -11,6 +11,7 @@
   "ergoterm.nvim": { "branch": "main", "commit": "b642a42359e9ebf1f04effb0bb145e9ac27dd585" },
   "fidget.nvim": { "branch": "main", "commit": "e32b672d8fd343f9d6a76944fedb8c61d7d8111a" },
   "gruvbox": { "branch": "main", "commit": "5e0a460d8e0f7f669c158dedd5f9ae2bcac31437" },
+  "hererocks": { "branch": "master", "commit": "160228946bed9998f5e3b168bd0b66ba2690f8f3" },
   "lazy.nvim": { "branch": "main", "commit": "85c7ff3711b730b4030d03144f6db6375044ae82" },
   "lazyjj.nvim": { "branch": "main", "commit": "bba66a1351ff1f1bd078c8a1b00b8d12b3ed0017" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "b1d9a914b02ba5660f1e272a03314b31d4576fe2" },
