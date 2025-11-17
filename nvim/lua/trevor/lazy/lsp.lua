@@ -44,6 +44,7 @@ return {
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"lua_ls",
+                "zuban",
 				"rust_analyzer",
 				"gopls",
 			},
