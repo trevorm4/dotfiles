@@ -14,6 +14,8 @@ return {
 				go = { "gofmt" },
 				javascript = { "prettier" },
 				typescript = { "prettier" },
+                nix = { "nixfmt" },
+                python = { "black" },
 			},
 			formatters = {
 				["clang-format"] = {
