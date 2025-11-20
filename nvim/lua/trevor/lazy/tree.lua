@@ -1,6 +1,5 @@
 local function nvim_tree_on_attach(bufnr)
 	local api = require("nvim-tree.api")
-
 	local function opts(desc)
 		return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 	end
@@ -37,15 +36,60 @@ local function nvim_tree_on_attach(bufnr)
 	vim.keymap.set("n", "-", change_root_to_parent, opts("Up"))
 end
 
+local function open_nvim_tree()
+  require("nvim-tree.api").tree.open()
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+
 return {
 	"nvim-tree/nvim-tree.lua",
 	config = function()
 		require("nvim-tree").setup({
-			sort = {
-				sorter = "case_sensitive",
+			hijack_cursor = true,
+            on_attach = nvim_tree_on_attach,
+			sync_root_with_cwd = true,
+			update_focused_file = {
+				enable = true,
+				update_root = true,
+				ignore_list = { "help" },
 			},
-			view = {
-				width = 30,
+			diagnostics = {
+				enable = true,
+				show_on_dirs = true,
+			},
+			filters = {
+				custom = {
+					"^.git$",
+				},
+			},
+			actions = {
+				change_dir = {
+					enable = false,
+					restrict_above_cwd = true,
+				},
+				open_file = {
+					resize_window = true,
+					window_picker = {
+						chars = "aoeui",
+					},
+				},
+				remove_file = {
+					close_window = false,
+				},
+			},
+			log = {
+				enable = false,
+				truncate = true,
+				types = {
+					all = false,
+					config = false,
+					copy_paste = false,
+					diagnostics = false,
+					git = false,
+					profile = false,
+					watcher = false,
+				},
 			},
 		})
 	end,

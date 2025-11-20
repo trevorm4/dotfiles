@@ -7,7 +7,7 @@ function ColorMyPencils(color)
 end
 
 return {
-
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{
 		"erikbackman/brightburn.vim",
 	},
