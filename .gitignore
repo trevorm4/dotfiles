@@ -3,3 +3,7 @@ go/
 jj/
 gh/
 github-copilot/
+nushell/
+configstore/
+helm/
+marimo/
