@@ -6,4 +6,5 @@ return {
 	},
 	{ "nvim-tree/nvim-web-devicons", opts = {} },
     { "github/copilot.vim" },
+    { "duane9/nvim-rg" },
 }
