@@ -16,6 +16,7 @@ return {
 				typescript = { "prettier" },
                 nix = { "nixfmt" },
                 python = { "black" },
+                rust = { "rustfmt" },
 			},
 			formatters = {
 				["clang-format"] = {
