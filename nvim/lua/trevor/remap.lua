@@ -23,6 +23,7 @@ map("x", "<leader>p", [["_dP]])
 map({ "n", "v" }, "<leader>y", [["+y]])
 map("n", "<leader>Y", [["+Y]])
 
+map("n", "<leader>dg", "ggdG")
 -- delete and send to null register
 map({ "n", "v" }, "<leader>d", "\"_d")
 
