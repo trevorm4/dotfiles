@@ -14,6 +14,7 @@ return {
 				go = { "gofmt" },
 				javascript = { "prettier" },
 				typescript = { "prettier" },
+				typescriptreact  = { "prettier" },
                 nix = { "nixfmt" },
                 python = { "black" },
                 rust = { "rustfmt" },
