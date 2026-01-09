@@ -1,15 +1,3 @@
-local root_files = {
-
-	".luarc.json",
-	".luarc.jsonc",
-	".luacheckrc",
-	".stylua.toml",
-	"stylua.toml",
-	"selene.toml",
-	"selene.yml",
-	".git",
-}
-
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
@@ -23,7 +11,7 @@ return {
 		"hrsh7th/nvim-cmp",
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
-        "ray-x/go.nvim",
+		"ray-x/go.nvim",
 	},
 
 	config = function()
@@ -41,11 +29,11 @@ return {
 
 		require("fidget").setup({})
 		require("mason").setup()
-        require("go").setup()
+		require("go").setup()
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"lua_ls",
-                "zuban",
+				"zuban",
 				"rust_analyzer",
 				"gopls",
 			},
@@ -140,7 +128,6 @@ return {
 				focusable = false,
 				style = "minimal",
 				border = "rounded",
-				source = "always",
 				header = "",
 				prefix = "",
 			},

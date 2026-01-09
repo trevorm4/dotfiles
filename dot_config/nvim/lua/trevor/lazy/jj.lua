@@ -1,6 +1,3 @@
-local map = vim.keymap.set
-local opts = { noremap = true, silent = true }
-
 return {
     'swaits/lazyjj.nvim',
     dependencies = 'nvim-lua/plenary.nvim',

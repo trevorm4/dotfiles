@@ -9,7 +9,10 @@ return {
 		config = function()
 			require("mini.pick").setup({})
             require("mini.cmdline").setup({})
-			map("n", "<leader>kf", ":Pick files<CR>", opts) -- Split below
+            require("mini.starter").setup({
+                query_updaters = ''
+            })
+			map("n", "<leader>kf", "<cmd>Pick files<CR>") -- Split below
 		end,
 	},
 }

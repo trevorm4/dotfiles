@@ -38,8 +38,8 @@ map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 map("n", "<leader>ay", "<cmd>1,$y+<CR>", { desc = "Yank whole file to system clipboard" })
 map("n", "<leader>da", "<cmd>:%d<CR>", { desc = "Delete all lines in buffer" })
 
--- nvim-tree
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
 map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
-map("n", "<leader>cl", ":TermSelect<CR>", opts)  -- List and select terminals
+map("n", "<leader>cl", ":TermSelect<CR>")  -- List and select terminals
+map("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
 
