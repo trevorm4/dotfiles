@@ -1,0 +1,5 @@
+    bindsym $mod+Return exec $term
+    bindsym $mod+q kill
+    bindsym $mod+tab exec $launcher
+    bindsym $mod+z exec scripts/space.sh
+    bindsym f12 exec grim -g "$(slurp)" - | swappy -f -

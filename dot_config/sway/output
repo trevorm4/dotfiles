@@ -1,0 +1,7 @@
+output DP-2 resolution 1920x1080@144Hz
+output DP-3 resolution 1920x1080@144Hz
+
+default_border none
+
+gaps inner $gap
+gaps outer -$gap

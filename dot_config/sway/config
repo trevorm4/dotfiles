@@ -1,0 +1,15 @@
+include variables
+include input
+include output
+include keybinds/*
+
+# Hide default sway bar completely - noctalia-shell provides its own
+bar {
+    mode invisible
+}
+
+# Launch noctalia-shell at startup
+exec qs -c noctalia-shell
+exec keyd-application-mapper -d
+
+include /etc/sway/config.d/*
