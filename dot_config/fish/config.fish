@@ -115,6 +115,8 @@ alias uf='uwufetch'
 alias q='exit'
 alias h='history'
 alias c='clear'
+alias k='kubectl'
+alias kctx='kubectx'
 
 alias gs='git status'
 alias ga='git add'
@@ -132,7 +134,6 @@ alias lsearch='yay -Qs'
 alias remove='yay -Rns'
 alias shutdown='systemctl poweroff'
 alias du='dust'
-alias rtool='~/Projects/gotool-rust/target/release/gotool-rust'
 
 starship init fish | source
 
