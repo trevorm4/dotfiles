@@ -78,7 +78,7 @@ return {
 				custom = {
 					"^.git$",
 				},
-                git_ignored = false
+				git_ignored = false,
 			},
 			view = {
 				float = {
