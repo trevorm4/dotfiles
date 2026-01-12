@@ -14,10 +14,10 @@ return {
 				go = { "gofmt" },
 				javascript = { "oxfmt" },
 				typescript = { "oxfmt" },
-				typescriptreact  = { "oxfmt" },
-                nix = { "nixfmt" },
-                python = { "black" },
-                rust = { "rustfmt" },
+				typescriptreact = { "oxfmt" },
+				nix = { "nixfmt" },
+				python = { "black" },
+				rust = { "rustfmt" },
 			},
 			formatters = {
 				["clang-format"] = {

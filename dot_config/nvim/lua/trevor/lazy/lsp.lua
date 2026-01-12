@@ -84,6 +84,7 @@ return {
 					lspconfig.oxlint.setup({
 						capabilities = capabilities,
 						filetypes = {
+							"scss",
 							"javascript",
 							"javascriptreact",
 							"typescript",

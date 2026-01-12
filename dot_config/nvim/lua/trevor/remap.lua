@@ -15,8 +15,8 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 map("n", "<leader>zig", "<cmd>LspRestart<cr>")
-map({'n', 'x', 'o'}, '<leader>;', ';', { desc = 'Repeat f/t forward' })
-map({'n', 'x', 'o'}, '<leader>,', ',', { desc = 'Repeat f/t backward' })
+map({ "n", "x", "o" }, "<leader>;", ";", { desc = "Repeat f/t forward" })
+map({ "n", "x", "o" }, "<leader>,", ",", { desc = "Repeat f/t backward" })
 -- paste
 map("x", "<leader>p", [["_dP]])
 
@@ -26,7 +26,7 @@ map("n", "<leader>Y", [["+Y]])
 
 map("n", "<leader>dg", "ggdG")
 -- delete and send to null register
-map({ "n", "v" }, "<leader>d", "\"_d")
+map({ "n", "v" }, "<leader>d", '"_d')
 
 map("i", "<C-c>", "<Esc>")
 
@@ -39,8 +39,8 @@ map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 map("n", "<leader>ay", "<cmd>1,$y+<CR>", { desc = "Yank whole file to system clipboard" })
 map("n", "<leader>da", "<cmd>:%d<CR>", { desc = "Delete all lines in buffer" })
 
+--- nvim-tree
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
 map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
-map("n", "<leader>cl", ":TermSelect<CR>")  -- List and select terminals
+map("n", "<leader>cl", ":TermSelect<CR>") -- List and select terminals
 map("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
-
