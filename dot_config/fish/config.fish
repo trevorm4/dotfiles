@@ -80,6 +80,10 @@ function t
     end
 end
 
+function kill_pattern
+    ps aux | grep -E "$argv[1]" | awk '{ print $2 }' | xargs kill -9
+end
+
 alias ls='eza -al --color=always --group-directories-first --icons'
 alias la='eza -a --color=always --group-directories-first --icons'
 alias ll='eza -l --color=always --group-directories-first --icons'
