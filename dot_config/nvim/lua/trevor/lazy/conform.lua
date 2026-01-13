@@ -18,6 +18,7 @@ return {
 				nix = { "nixfmt" },
 				python = { "black" },
 				rust = { "rustfmt" },
+                tf = { "terraform_fmt" },
 			},
 			formatters = {
 				["clang-format"] = {
