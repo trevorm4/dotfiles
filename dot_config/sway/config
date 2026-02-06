@@ -1,6 +1,7 @@
 include variables
 include input
 include output
+include workspaces
 include keybinds/*
 
 # Hide default sway bar completely - noctalia-shell provides its own
