@@ -1,0 +1,3 @@
+[submodule "dot_config/nvim/lua/trevor"]
+	path = dot_config/nvim/lua/trevor
+	url = https://github.com/trevorm4/nvim-base.git
