@@ -150,6 +150,7 @@ alias lsearch='yay -Qs'
 alias remove='yay -Rns'
 alias shutdown='systemctl poweroff'
 alias du='dust'
+alias cz='chezmoi'
 
 # Zsh-specific aliases
 alias zshconfig='$EDITOR ~/.config/zsh/config.zsh'

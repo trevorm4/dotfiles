@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if pgrep -f "keyd-application-mapper" > /dev/null; then
+    pkill -f "keyd-application-mapper"
+else
+    keyd-application-mapper -d &
+fi

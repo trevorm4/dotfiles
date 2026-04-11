@@ -1,0 +1,12 @@
+# Path Of Exile
+# Note: 'content=game' has no Sway equivalent (Hyprland-specific hint)
+for_window [class="^(pathofexilesteam\.exe|steam_app_238960)$"] floating disable
+
+# Awakened PoE Trade
+# Note: no_blur, no_shadow, no_anim, no_follow_mouse have no Sway equivalents
+for_window [class="^(awakened-poe-trade|Awakened-poe-trade)$"] floating enable, border none
+assign [class="NoiseTorch"] workspace number 9
+assign [app_id="vesktop"] workspace number 3
+assign [class="steam"] workspace number 8
+
+mouse_warping container

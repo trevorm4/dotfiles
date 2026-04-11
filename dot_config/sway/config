@@ -1,6 +1,7 @@
 include variables
 include input
 include output
+include windowrules
 include workspaces
 include keybinds/*
 
@@ -12,5 +13,8 @@ bar {
 # Launch noctalia-shell at startup
 exec qs -c noctalia-shell
 exec keyd-application-mapper -d
+exec noisetorch
+exec vesktop
+
 
 include /etc/sway/config.d/*
