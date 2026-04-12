@@ -138,6 +138,7 @@ alias lsearch='yay -Qs'
 alias remove='yay -Rns'
 alias shutdown='systemctl poweroff'
 alias du='dust'
+alias cz='chezmoi'
 
 starship init fish | source
 
