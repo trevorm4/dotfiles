@@ -24,7 +24,6 @@ require("lazy").setup({
       end,
     },
     { import = "trevor.lazy" },
-    { import = "trevor.custom" },
   },
   change_detection = { notify = false },
 })
