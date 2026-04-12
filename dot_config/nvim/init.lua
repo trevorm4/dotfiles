@@ -16,8 +16,9 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
+    -- The base config repo (managed by chezmoi in lua/base)
     {
-      "trevorm4/nvim-base",
+      dir = vim.fn.stdpath("config") .. "/lua/base",
       name = "trevor",
       lazy = false,
       priority = 1000,
@@ -25,13 +26,13 @@ require("lazy").setup({
         require("trevor")
       end,
     },
-    -- Import specs from the plugin
+    -- Import specs from the base config
     { import = "trevor.lazy" },
-    -- Import specs from this machine's local configuration (e.g. code-layout, lazyjj)
-    { import = "trevor.machine" },
+    -- Import specs from this machine's local configuration
+    { import = "machine" },
   },
   change_detection = { notify = false },
 })
 
--- Apply colorscheme after lazy setup
-vim.cmd.colorscheme("sonokai")
+-- Apply colorscheme after everything is loaded
+pcall(vim.cmd.colorscheme, "sonokai")
