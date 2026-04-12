@@ -1,2 +1,4 @@
+LICENSE
+README.md
 .config/nvim/lazy-lock.json
 .config/fish/fish_variables
