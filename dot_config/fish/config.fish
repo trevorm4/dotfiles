@@ -140,5 +140,6 @@ alias shutdown='systemctl poweroff'
 alias du='dust'
 alias cz='chezmoi'
 
+set -x STARSHIP_CONFIG ~/.config/starship/starship.toml
 starship init fish | source
 
