@@ -13,7 +13,12 @@ local options = {
    unix_domains = {},
 
    -- ref: https://wezfurlong.org/wezterm/config/lua/WslDomain.html
-   wsl_domains = {},
+   wsl_domains = {
+      {
+         name = 'WSL:archlinux',
+         distribution = 'archlinux',
+      },
+   },
 }
 
 return options

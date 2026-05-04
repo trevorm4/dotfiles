@@ -6,6 +6,8 @@ return {
    status_update_interval = 1000,
    audible_bell = 'Disabled',
 
+   enable_tab_bar = true,
+
    scrollback_lines = 20000,
 
    hyperlink_rules = {
