@@ -43,3 +43,20 @@ bindsym $mod+Shift+0 move container to workspace number 10
 
 # audio
 bindsym $mod+grave exec qs -c noctalia-shell ipc call volume muteInput
+
+# bindsym button9 exec /home/trevor/.config/sway/scripts/autoclick
+bindsym --whole-window button8 exec /home/trevor/.config/sway/scripts/autoclick
+bindsym --whole-window --release button8 exec /home/trevor/.config/sway/scripts/stop_autoclick
+
+# ============================================================================
+# PD2 Trader overlay focus / scratchpad
+# ============================================================================
+
+# Toggle focus to the PD2 Trader overlay
+bindsym $mod+Shift+o [title="^PD2Trader$"] focus
+
+# Return focus to Diablo II (Wine window)
+bindsym $mod+Shift+d [class="^game\\.exe$" title="Diablo II"] focus
+
+# Quick-hide/show overlay via scratchpad
+bindsym $mod+Shift+p [con_mark="pd2overlay"] scratchpad show, floating enable

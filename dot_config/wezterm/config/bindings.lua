@@ -55,9 +55,11 @@ local keys = {
    { key = 'RightArrow', mods = 'ALT',         action = act.SendString '\u{1b}f' },
    { key = 'Backspace',  mods = 'ALT',         action = act.SendString '\u{1b}\x7f' },
 
-   -- copy/paste --
+-- copy/paste (SUPER = Cmd on mac, Alt on Linux) --
    { key = 'c',          mods = mod.SUPER,     action = act.CopyTo('Clipboard') },
    { key = 'v',          mods = mod.SUPER,     action = act.PasteFrom('Clipboard') },
+   -- paste (Ctrl on Linux) --
+   { key = 'v',          mods = 'CTRL',        action = act.PasteFrom('Clipboard') },
 
    -- tabs --
    -- tabs: spawn+close

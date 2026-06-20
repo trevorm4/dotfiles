@@ -1,5 +1,8 @@
-    bindsym $mod+Return exec $term
-    bindsym $mod+q kill
-    bindsym $mod+tab exec $launcher
-    bindsym f12 exec grim -g "$(slurp)" - | swappy -f -
-    bindsym $mod+z exec sway-ahk -config ~/.config/sway/scripts/default.yaml
+bindsym $mod+Return exec $term
+bindsym $mod+q kill
+bindsym $mod+tab exec $launcher
+bindsym f12 exec grim -g "$(slurp)" - | swappy -f -
+bindsym $mod+z exec sway-ahk -config ~/.config/sway/scripts/default.yaml
+# Path of Trading
+# bindsym --release Ctrl+d exec /home/trevor/.local/bin/pathoftrading
+

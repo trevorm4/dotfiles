@@ -5,6 +5,6 @@ set $down j
 set $up k
 set $right l
 
-set $term ghostty
+set $term wezterm
 set $launcher qs -c noctalia-shell ipc call launcher toggle
 set $gap 5
