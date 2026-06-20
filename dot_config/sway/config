@@ -2,8 +2,9 @@ include variables
 include input
 include output
 include windowrules
-include workspaces
 include keybinds/*
+
+exec_always ~/.config/sway/scripts/apply-layout
 
 # Hide default sway bar completely - noctalia-shell provides its own
 bar {
@@ -13,8 +14,11 @@ bar {
 # Launch noctalia-shell at startup
 exec qs -c noctalia-shell
 exec keyd-application-mapper -d
-exec noisetorch
 exec vesktop
 
+# systemd integration: export Wayland and X11 env vars so systemd user services
+# (like clipboard-sync) know which displays to use and can authenticate.
+exec systemctl --user set-environment XAUTHORITY=/home/trevor/.Xauthority
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DISPLAY
 
 include /etc/sway/config.d/*

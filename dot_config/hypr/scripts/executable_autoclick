@@ -1,0 +1,19 @@
+#!/bin/bash
+PIDFILE=/tmp/autoclick.pid
+
+if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+    kill "$(cat "$PIDFILE")"
+    rm -f "$PIDFILE"
+else
+    (
+        trap 'rm -f "$PIDFILE"' EXIT
+        DELAY_MS=42
+        MOUSE_BUTTON="0xC0"
+        while true; do
+            ydotool click $MOUSE_BUTTON
+            sleep "0.0${DELAY_MS}"
+        done
+    ) &
+    echo $! > "$PIDFILE"
+fi
+
