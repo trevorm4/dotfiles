@@ -1,12 +1,67 @@
-# Path Of Exile
+# Path Of Exile 1 & 2
 # Note: 'content=game' has no Sway equivalent (Hyprland-specific hint)
-for_window [class="^(pathofexilesteam\.exe|steam_app_238960)$"] floating disable
+for_window [class="^(pathofexilesteam\.exe|steam_app_238960|steam_app_2694490)$"] floating disable
 
 # Awakened PoE Trade
-# Note: no_blur, no_shadow, no_anim, no_follow_mouse have no Sway equivalents
+# Note: no_blur, no_shadow have no Sway equivalents (SwayFX adds blur/shadows globally, not per-window)
 for_window [class="^(awakened-poe-trade|Awakened-poe-trade)$"] floating enable, border none
+
+# Exiled Exchange 2
+# What works in base Sway: floating, borderless, no_focus, workspace assignment
+# What does NOT work: no_blur, no_shadow, opaque, focus_on_activate, stay_focused
+for_window [app_id="exiled-exchange-2"] {
+    floating enable
+    border none
+    no_focus
+    urgent disable
+}
+assign [app_id="exiled-exchange-2"] workspace number 8
+# Diablo II (Project Diablo 2)
+for_window [class="^game\.exe$"] {
+    floating disable
+    fullscreen enable
+}
+
+# ============================================================================
+# PD2 Trader
+# ============================================================================
+
+# PD2 Trader windows (Wayland app_id + XWayland class fallbacks)
+for_window [app_id="com.pd2-trader.app"] {
+    floating enable
+    border none
+    no_focus
+    urgent disable
+    mark --add pd2trader
+}
+
+for_window [class="^(Pd2-trader-installer|pd2-trader-installer|pd2-trader)$"] {
+    floating enable
+    border none
+    no_focus
+    urgent disable
+    mark --add pd2trader
+}
+
+# Main overlay ("PD2Trader") — the app keeps this window hidden on Linux.
+# Do NOT float, resize, or reposition it; leave it as an unmapped normal window.
+# The mark is kept so workspace sync still finds it.
+for_window [title="^PD2Trader$"] {
+    no_focus
+    mark --add pd2overlay
+}
+
+# All other PD2Trader windows (popups, toasts, buttons, etc.) float automatically.
+for_window [title="^PD2Trader:.*"] {
+    floating enable
+    border none
+    no_focus
+    mark --add pd2trader
+}
+
 assign [class="NoiseTorch"] workspace number 9
 assign [app_id="vesktop"] workspace number 3
-assign [class="steam"] workspace number 8
+# Steam launcher + all Steam games → workspace 8 (matches Hyprland rule)
+assign [class="^(steam|steam_app_.*)$"] workspace number 8
 
 mouse_warping container
