@@ -42,7 +42,7 @@ bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
 # audio
-bindsym $mod+grave exec qs -c noctalia-shell ipc call volume muteInput
+bindsym $mod+grave exec noctalia-shell ipc call volume muteInput
 
 # bindsym button9 exec /home/trevor/.config/sway/scripts/autoclick
 bindsym --whole-window button8 exec /home/trevor/.config/sway/scripts/autoclick

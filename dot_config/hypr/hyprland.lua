@@ -11,7 +11,7 @@
 -- -----------------------------------------------------------------------------
 local mainMod   = "SUPER"
 local term      = "wezterm"
-local launcher  = "qs -c noctalia-shell ipc call launcher toggle"
+local launcher  = "noctalia-shell ipc call launcher toggle"
 local gap       = 5
 
 -- -----------------------------------------------------------------------------
@@ -76,7 +76,7 @@ hl.config({
 -- Startup applications
 -- -----------------------------------------------------------------------------
 hl.on("hyprland.start", function()
-    hl.exec_cmd("qs -c noctalia-shell")
+    hl.exec_cmd("noctalia-shell")
     hl.exec_cmd("keyd-application-mapper -d")
     hl.exec_cmd("sh -c 'sleep 3 && easyeffects'")
     hl.exec_cmd("vesktop")
@@ -126,7 +126,7 @@ for i = 1, 10 do
 end
 
 -- --- Audio ---
-hl.bind(mainMod .. " + grave", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call volume muteInput"))
+hl.bind(mainMod .. " + grave", hl.dsp.exec_cmd("noctalia-shell ipc call volume muteInput"))
 
 -- --- Fullscreen / Floating ---
 hl.bind(mainMod .. " + F",        hl.dsp.window.fullscreen({ mode = 0 }))

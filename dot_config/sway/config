@@ -12,7 +12,7 @@ bar {
 }
 
 # Launch noctalia-shell at startup
-exec qs -c noctalia-shell
+exec noctalia-shell
 exec keyd-application-mapper -d
 exec vesktop
 

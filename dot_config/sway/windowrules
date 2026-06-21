@@ -1,6 +1,6 @@
 # Path Of Exile 1 & 2
 # Note: 'content=game' has no Sway equivalent (Hyprland-specific hint)
-for_window [class="^(pathofexilesteam\.exe|steam_app_238960|steam_app_2694490)$"] floating disable
+for_window [class="^(pathofexilesteam\.exe|steam_app_238960|steam_app_2694490)$"] floating disable, border none
 
 # Awakened PoE Trade
 # Note: no_blur, no_shadow have no Sway equivalents (SwayFX adds blur/shadows globally, not per-window)

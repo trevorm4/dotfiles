@@ -1,28 +1,12 @@
 #!/bin/bash
-# Dynamically configure sway outputs based on detected monitors.
-# Handles varying output names across distros (e.g. DP-1/DP-2 vs DP-2/DP-3).
 
-outputs=($(swaymsg -t get_outputs -r | jq -r '.[] | select(.active) | .name' | sort))
-count=${#outputs[@]}
+swaymsg output DP-1 resolution 1920x1080@144Hz position 0,0
+swaymsg output DP-2 resolution 1920x1080@144Hz position 1920,0
 
-case $count in
-  0)
-    exit 1
-    ;;
-  1)
-    swaymsg output "${outputs[0]}" resolution 1920x1080@144Hz position 0,0
-    for ws in {1..10}; do
-      swaymsg workspace "$ws" output "${outputs[0]}"
-    done
-    ;;
-  *)
-    swaymsg output "${outputs[0]}" resolution 1920x1080@144Hz position 0,0
-    swaymsg output "${outputs[1]}" resolution 1920x1080@144Hz position 1920,0
-    for ws in 1 3 5 7 9; do
-      swaymsg workspace "$ws" output "${outputs[0]}"
-    done
-    for ws in 2 4 6 8 10; do
-      swaymsg workspace "$ws" output "${outputs[1]}"
-    done
-    ;;
-esac
+for ws in 1 3 5 7 9; do
+  swaymsg workspace "$ws" output DP-1
+done
+
+for ws in 2 4 6 8 10; do
+  swaymsg workspace "$ws" output DP-2
+done
