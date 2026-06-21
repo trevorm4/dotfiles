@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     chezmoi
-    easyeffects
     eza
     starship
     git

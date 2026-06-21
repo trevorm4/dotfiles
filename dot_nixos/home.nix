@@ -1,4 +1,12 @@
 { pkgs, ... }: {
+  imports = [
+    ./home/starship.nix
+    ./home/ghostty.nix
+    ./home/tmux.nix
+    ./home/zsh.nix
+    ./home/fish.nix
+  ];
+
   home.username = "trevor";
   home.homeDirectory = "/home/trevor";
   home.stateVersion = "26.05";

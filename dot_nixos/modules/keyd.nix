@@ -8,6 +8,9 @@
           main = {
             f24 = "layer(meta)";
           };
+          "steam-app-*" = {
+            backslash = "toggle(toggle-macro)";
+          };
         };
       };
     };
