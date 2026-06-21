@@ -7,6 +7,7 @@
     ./modules/keyd.nix
     ./modules/audio.nix
     ./modules/users.nix
+    ./modules/jujutsu.nix
     ./modules/fish.nix
     ./modules/sway.nix
     ./modules/neovim.nix
