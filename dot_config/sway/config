@@ -1,6 +1,7 @@
 include variables
 include input
 include output
+include workspaces
 include windowrules
 include keybinds/*
 

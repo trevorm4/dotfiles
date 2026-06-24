@@ -1,4 +1,6 @@
 { pkgs, ... }: {
+  programs.fish.enable = true;
+
   users.users.trevor = {
     isNormalUser = true;
     shell = pkgs.fish;

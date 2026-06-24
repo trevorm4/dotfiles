@@ -1,14 +1,61 @@
-{ config, pkgs, ... }: {
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.efi.efiSysMountPoint = "/boot";
+{
+  config,
+  lib,
+  modulesPath,
+  pkgs,
+  ...
+}:
+{
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
+
+  boot = {
+    initrd = {
+      kernelModules = [ "dm-snapshot" ];
+      availableKernelModules = [
+        "nvme"
+        "xhci_pci"
+        "ahci"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+      ];
+    };
+
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      grub.efiSupport = true;
+      efi.efiSysMountPoint = "/boot";
+    };
+
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = [ "nvidia_drm.modeset=1" ];
+    kernelModules = [
+      "kvm-amd"
+      "nvidia_uvm"
+    ];
+  };
+
+  fileSystems."/" = {
+    device = "/dev/mapper/vg0-nixos";
+    fsType = "ext4";
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/0ECC-E769";
+    fsType = "vfat";
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
+  };
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   swapDevices = [
     { device = "/dev/vg0/swap"; }
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = [ "nvidia_drm.modeset=1" ];
-  boot.kernelModules = [ "nvidia_uvm" ];
 }

@@ -5,6 +5,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    fzf
     lua5_1
     luarocks
   ];

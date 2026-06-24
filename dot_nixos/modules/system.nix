@@ -2,11 +2,6 @@
   environment.systemPackages = with pkgs; [
     chezmoi
     eza
-    starship
-    git
-    firefox
-    helium
-    fish
     home-manager
     keyd
     nixfmt
@@ -15,21 +10,13 @@
     quickshell
     noctalia-shell
     tmux
-    vesktop
+    ffmpeg
     wezterm
     wget
   ];
 
   services.displayManager.sddm = {
     enable = true;
-
-    # Enables experimental Wayland support
     wayland.enable = true;
   };
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  nixpkgs.config.allowUnfree = true;
 }

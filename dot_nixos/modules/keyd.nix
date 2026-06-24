@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   services.keyd = {
     enable = true;
     keyboards = {
@@ -7,9 +7,6 @@
         settings = {
           main = {
             f24 = "layer(meta)";
-          };
-          "steam-app-*" = {
-            backslash = "toggle(toggle-macro)";
           };
         };
       };
