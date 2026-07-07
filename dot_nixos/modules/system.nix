@@ -1,21 +1,26 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
+    # keep-sorted start
     bat
     chezmoi
     eza
+    ffmpeg
+    gh
     gpu-screen-recorder
     home-manager
     keyd
     killall
     nixfmt
-    opencode
-    vim
-    quickshell
     noctalia-shell
+    opencode
+    quickshell
     tmux
-    ffmpeg
+    treefmt
+    vim
+    vlc
     wezterm
     wget
+    # keep-sorted end
   ];
 
   services.displayManager.sddm = {

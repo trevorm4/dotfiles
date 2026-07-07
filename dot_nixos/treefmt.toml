@@ -1,0 +1,7 @@
+[formatter.nixfmt]
+command = "nixfmt"
+includes = ["*.nix"]
+
+[formatter.keep-sorted]
+command = "keep-sorted"
+includes = ["*.nix"]
