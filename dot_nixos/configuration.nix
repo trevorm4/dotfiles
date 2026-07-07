@@ -15,6 +15,8 @@
     ./modules/browser.nix
     ./modules/system.nix
     ./modules/vesktop.nix
+    ./modules/flatpak.nix
+    ./modules/wine.nix
   ];
 
   time.timeZone = "America/Los_Angeles";

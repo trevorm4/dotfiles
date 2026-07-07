@@ -2,6 +2,7 @@ _: {
   programs.fish = {
     enable = true;
     shellAliases = {
+      cat = "bat";
       ls = "eza -al --color=always --group-directories-first --icons";
       la = "eza -a --color=always --group-directories-first --icons";
       ll = "eza -l --color=always --group-directories-first --icons";

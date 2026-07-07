@@ -24,14 +24,20 @@
     };
 
     loader = {
-      systemd-boot.enable = true;
+      systemd-boot = {
+        configurationLimit = 10;
+        enable = true;
+      };
       efi.canTouchEfiVariables = true;
       grub.efiSupport = true;
       efi.efiSysMountPoint = "/boot";
     };
 
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [ "nvidia_drm.modeset=1" ];
+    kernelParams = [
+      "nvidia_drm.modeset=1"
+      "split_lock_detect=off"
+    ];
     kernelModules = [
       "kvm-amd"
       "nvidia_uvm"
