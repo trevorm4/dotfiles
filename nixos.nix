@@ -1,32 +1,30 @@
+{ inputs, ... }:
+let
+  importModule =
+    name: dir:
+    (import (dir + "/${name}") { })
+    .flake.nixosModules.${builtins.replaceStrings [ ".mod.nix" ] [ "" ] name};
+
+  importDir =
+    dir:
+    builtins.map (name: importModule name dir) (
+      builtins.filter (f: builtins.match ".*\\.mod\\.nix" f != null) (
+        builtins.attrNames (builtins.readDir dir)
+      )
+    );
+in
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-{
-  imports = [
-    # keep-sorted start
-    ./modules/audio.nix
-    ./modules/boot.nix
-    ./modules/file-manager.nix
-    ./modules/flatpak.nix
-    ./modules/fonts.nix
-    ./modules/hardware.nix
-    ./modules/keyd.nix
-    ./modules/networking.nix
-    ./modules/nvidia.nix
-    ./modules/steam.nix
-    ./modules/sway.nix
-    ./modules/system.nix
-    ./modules/users.nix
-    ./modules/xdg.nix
-    # keep-sorted end
-  ];
+  imports = importDir ./modules;
+
+  hjem.users.trevor = {
+    imports = [
+      inputs.hjem-rum.hjemModules.hjem-rum
+      ./home.nix
+    ];
+  };
 
   time.timeZone = "America/Los_Angeles";
   system.stateVersion = "26.05";
-
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"

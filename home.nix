@@ -1,33 +1,23 @@
-{ pkgs, ... }: {
+{ lib, ... }:
+let
+  inherit (lib.modules) mkAliasOptionModule;
+
+  importHjem =
+    name: dir:
+    (import (dir + "/${name}") { })
+    .flake.hjemModules.${builtins.replaceStrings [ ".mod.nix" ] [ "" ] name};
+
+  importDir =
+    dir:
+    builtins.map (name: importHjem name dir) (
+      builtins.filter (f: builtins.match ".*\\.mod\\.nix" f != null) (
+        builtins.attrNames (builtins.readDir dir)
+      )
+    );
+in
+{
   imports = [
-    # keep-sorted start
-    ./home/audio.nix
-    ./home/browser.nix
-    ./home/config.nix
-    ./home/fish.nix
-    ./home/lutris.nix
-    ./home/neovim.nix
-    ./home/packages.nix
-    ./home/scm.nix
-    ./home/starship.nix
-    ./home/sway.nix
-    ./home/tmux.nix
-    ./home/wine.nix
-    ./home/zsh.nix
-    # keep-sorted end
-  ];
-
-  home = {
-    username = "trevor";
-    homeDirectory = "/home/trevor";
-
-    stateVersion = "26.05";
-    pointerCursor = {
-      name = "catppuccin-mocha-mauve-cursors";
-      package = pkgs.catppuccin-cursors.mochaMauve;
-      size = 24;
-      gtk.enable = true;
-      x11.enable = true;
-    };
-  };
+    (mkAliasOptionModule [ "programs" ] [ "rum" "programs" ])
+  ]
+  ++ importDir ./home;
 }

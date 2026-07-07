@@ -1,63 +1,53 @@
 {
-  description = "trevor's NixOS flake";
+  nixConfig = {
+    experimental-features = [
+      "flakes"
+      "nix-command"
+    ];
+  };
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hjem = {
+      url = "github:feel-co/hjem";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hjem-rum = {
+      url = "github:snugnug/hjem-rum";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.hjem.follows = "hjem";
+    };
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      treefmt-nix,
-    }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-      treefmtConfig = treefmt-nix.lib.evalModule pkgs {
-        projectRootFile = "flake.nix";
-        programs.nixfmt.enable = true;
-        programs.keep-sorted.enable = true;
-      };
-    in
-    {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./nixos.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users = {
-                trevor = import ./home.nix;
-              };
-            };
-          }
+    { flake-parts, ... }@inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } (
+      { self, ... }: {
+        systems = [ "x86_64-linux" ];
+
+        imports = [
+          inputs.treefmt-nix.flakeModule
+          ./parts
         ];
-      };
 
-      homeConfigurations = {
-        trevor = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            ./home.nix
-          ];
+        flake = {
+          nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit inputs; };
+            modules = [
+              inputs.hjem.nixosModules.hjem
+              ./nixos.nix
+            ];
+          };
         };
-      };
-
-      checks.${system}.formatting = treefmtConfig.config.build.check self;
-
-      devShells.${system}.default = treefmtConfig.config.build.devShell;
-    };
+      }
+    );
 }
