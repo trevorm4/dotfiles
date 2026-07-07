@@ -1,8 +1,0 @@
-#!/bin/bash
-PIDFILE=/tmp/autoclick.pid
-
-if [ -f "$PIDFILE" ]; then
-    PID=$(cat "$PIDFILE")
-    kill "$PID" 2>/dev/null
-    rm -f "$PIDFILE"
-fi

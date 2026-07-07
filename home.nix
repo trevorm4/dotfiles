@@ -1,10 +1,18 @@
 { pkgs, ... }: {
   imports = [
     # keep-sorted start
+    ./home/audio.nix
+    ./home/browser.nix
+    ./home/config.nix
     ./home/fish.nix
     ./home/lutris.nix
+    ./home/neovim.nix
+    ./home/packages.nix
+    ./home/scm.nix
     ./home/starship.nix
+    ./home/sway.nix
     ./home/tmux.nix
+    ./home/wine.nix
     ./home/zsh.nix
     # keep-sorted end
   ];

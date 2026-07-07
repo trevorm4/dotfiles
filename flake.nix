@@ -33,7 +33,7 @@
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./configuration.nix
+          ./nixos.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -45,6 +45,15 @@
             };
           }
         ];
+      };
+
+      homeConfigurations = {
+        trevor = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./home.nix
+          ];
+        };
       };
 
       checks.${system}.formatting = treefmtConfig.config.build.check self;

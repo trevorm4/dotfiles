@@ -4,13 +4,13 @@
     defaultEditor = true;
   };
 
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     fzf
     lua5_1
     luarocks
   ];
 
-  environment.sessionVariables = {
+  home.sessionVariables = {
     LUA_PATH = "$HOME/.luarocks/share/lua/5.1/?.lua;$HOME/.luarocks/share/lua/5.1/?/init.lua;;";
     LUA_CPATH = "$HOME/.luarocks/lib/lua/5.1/?.so;;";
   };

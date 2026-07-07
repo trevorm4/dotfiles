@@ -1,4 +1,10 @@
 LICENSE
 README.md
-.config/nvim/lazy-lock.json
-.config/fish/fish_variables
+flake.nix
+flake.lock
+configuration.nix
+home.nix
+treefmt.toml
+home/
+modules/
+config/

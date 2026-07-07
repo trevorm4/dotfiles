@@ -54,18 +54,6 @@ _: {
       cz = "chezmoi";
     };
     functions = {
-      backup = "cp $argv[1] $argv[1].bak";
-      copy = ''
-        set count (count $argv)
-        if test $count -eq 2; and test -d $argv[1]
-          set from (string trim --right --chars=/ $argv[1])
-          set to $argv[2]
-          command cp -r $from $to
-        else
-          command cp $argv
-        end
-      '';
-      mkcd = "mkdir -p $argv[1]; and cd $argv[1]";
       extract = ''
         set file $argv[1]
         if test -f $file
