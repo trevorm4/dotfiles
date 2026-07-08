@@ -1,7 +1,7 @@
 _: {
   flake.hjemModules.wine = { pkgs, ... }: {
     packages = with pkgs; [
-      (wineWowPackages.full.override {
+      (wineWow64Packages.full.override {
         mingwSupport = true;
         wineRelease = "staging";
       })
