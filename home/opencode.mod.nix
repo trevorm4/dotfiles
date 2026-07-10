@@ -10,6 +10,8 @@ _: {
       allowed.commands = [
         "rg*"
         "ls*"
+        "head*"
+        "tail*"
 
         "jj bookmark list*"
         "jj config get*"

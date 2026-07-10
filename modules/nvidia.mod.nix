@@ -1,6 +1,14 @@
 _: {
   flake.nixosModules.nvidia = { config, ... }: {
     services.xserver.videoDrivers = [ "nvidia" ];
+    services.xserver.extraConfig = ''
+      Section "Device"
+        Identifier "AMD"
+        Driver "modesetting"
+        BusID  "PCI:11:0:0"
+        Option "Ignore" "true"
+      EndSection
+    '';
 
     hardware.nvidia = {
       modesetting.enable = true;
