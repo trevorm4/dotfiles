@@ -4,6 +4,7 @@ _: {
       "nvim".source = ./config/nvim;
       "sway".source = ./config/sway;
       "wezterm".source = ./config/wezterm;
+      "zellij".source = ./config/zellij;
     };
   };
 }
