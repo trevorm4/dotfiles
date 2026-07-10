@@ -12,6 +12,11 @@ _: {
         "ls*"
         "head*"
         "tail*"
+        "find*"
+        "cat*"
+        "echo*"
+        "grep*"
+        "timeout*"
 
         "jj bookmark list*"
         "jj config get*"
@@ -115,6 +120,7 @@ _: {
       allowed.paths = [
         "/etc/profiles"
         "/nix/store"
+        "~/"
       ];
     in
     {

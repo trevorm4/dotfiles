@@ -12,5 +12,7 @@ _: {
     };
 
     services.xserver.enable = true;
+
+    services.journald.storage = "persistent";
   };
 }

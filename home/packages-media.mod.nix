@@ -3,6 +3,7 @@ _: {
     packages = with pkgs; [
       ffmpeg
       gpu-screen-recorder
+      spotify
       vlc
     ];
   };

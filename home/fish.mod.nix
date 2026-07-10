@@ -33,7 +33,6 @@ let
     kctx = "kubectx";
     la = "eza -a --color=always --group-directories-first --icons";
     ll = "eza -l --color=always --group-directories-first --icons";
-    ls = "eza -al --color=always --group-directories-first --icons";
     lsearch = "yay -Qs";
     lt = "eza -aT --color=always --group-directories-first --icons";
     mirror = "sudo cachyos-rate-mirrors";
@@ -101,6 +100,9 @@ in
         '';
       };
       config = ''
+        function ls
+            eza -al --color=always --group-directories-first --icons $argv
+        end
         set -x MANROFFOPT "-c"
         set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
         set -x PATH /opt/node/bin $PATH ~/.cargo/bin
@@ -111,8 +113,11 @@ in
                 set -x PATH $p $PATH
             end
         end
-        set -x EDITOR vim
+        set -x PKG_CONFIG_PATH ~/.nix-profile/lib/pkgconfig
         set fish_greeting
+        direnv hook fish | source
+
+        starship init fish | source
       '';
     };
   };

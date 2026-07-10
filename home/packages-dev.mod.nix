@@ -6,6 +6,7 @@ _: {
       opencode
       quickshell
       treefmt
+      zellij
     ];
   };
 }
