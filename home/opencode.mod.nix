@@ -17,6 +17,13 @@ _: {
         "echo*"
         "grep*"
         "timeout*"
+        "wc*"
+        "awk*"
+        "true*"
+        "which*"
+        "sed*"
+        "hunk*"
+        "printf*"
 
         "jj bookmark list*"
         "jj config get*"
@@ -120,10 +127,14 @@ _: {
       allowed.paths = [
         "/etc/profiles"
         "/nix/store"
-        "~/"
+        "/home/trevor"
       ];
     in
     {
+      xdg.config.files."opencode/skills/hunk-review/SKILL.md" = {
+        source = ../config/skills/hunk-review/SKILL.md;
+      };
+
       xdg.config.files."opencode/opencode.json" = {
         generator = lib.generators.toJSON { };
         value = {
@@ -132,6 +143,12 @@ _: {
           autoupdate = false;
 
           instructions = singleton "${pkgs.writeText "instructions.md" instructions}";
+
+          skills = {
+            paths = [
+              "skills/hunk-review"
+            ];
+          };
 
           permission = {
             "*" = "ask";

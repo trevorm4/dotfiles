@@ -5,8 +5,6 @@ include workspaces
 include windowrules
 include keybinds/*
 
-exec_always ~/.config/sway/scripts/apply-layout
-
 # Hide default sway bar completely - noctalia-shell provides its own
 bar {
     mode invisible
@@ -21,5 +19,6 @@ exec vesktop
 # (like clipboard-sync) know which displays to use and can authenticate.
 exec systemctl --user set-environment XAUTHORITY=/home/trevor/.Xauthority
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DISPLAY
+exec wl-paste --watch xclip -selection clipboard -i
 
 include /etc/sway/config.d/*

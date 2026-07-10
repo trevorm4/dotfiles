@@ -12,6 +12,10 @@ _: {
       grim
       slurp
       swappy
+      swayidle
+      swaylock
+      wl-clipboard
+      xclip
     ];
   };
 }

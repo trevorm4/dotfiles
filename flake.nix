@@ -25,6 +25,22 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.hjem.follows = "hjem";
     };
+    hunk = {
+      url = "github:modem-dev/hunk";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    migraine-diary = {
+      url = "github:trevorm4/migraine-diary";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    sway-ahk = {
+      url = "github:trevorm4/sway-ahk";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

@@ -1,5 +1,5 @@
-Hi I'm Trevor and these are my dotfiles.
+Hi I'm Trevor and these are my NixOS configs.
 
-Uses [chezmoi](https://www.chezmoi.io/) for managing the dotfiles
+A flake built with [flake-parts](https://flakeparts.dev). System modules live in `modules/` and home modules in `home/` — both are auto-imported from any `*.mod.nix` file. Local packages are in `pkgs/`, flake wiring in `parts/`.
 
-Run `chezmoi apply` to apply them to your local filesystem
+Rebuild with `nixos-rebuild switch --flake .`

@@ -8,6 +8,10 @@ _: {
         BusID  "PCI:11:0:0"
         Option "Ignore" "true"
       EndSection
+
+      Section "ServerFlags"
+        Option "AutoAddGPU" "false"
+      EndSection
     '';
 
     hardware.nvidia = {
@@ -22,7 +26,6 @@ _: {
       GBM_BACKEND = "nvidia-drm";
       LIBVA_DRIVER_NAME = "nvidia";
       NIXOS_OZONE_WL = "1";
-      WLR_DRM_DEVICES = "/dev/dri/card1";
       WLR_NO_HARDWARE_CURSORS = "1";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     };

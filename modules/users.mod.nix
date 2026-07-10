@@ -6,6 +6,7 @@ _: {
       isNormalUser = true;
       shell = pkgs.fish;
       extraGroups = [
+        "input"
         "networkmanager"
         "wheel"
       ];

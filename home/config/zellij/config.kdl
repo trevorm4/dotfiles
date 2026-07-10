@@ -1,5 +1,6 @@
 // Seamless tiling (removes pane borders and title frames, leaving only thin separators)
 pane_frames false
+show_startup_tips false
 
 keybinds {
     // 1. Global bindings (except locked mode) for tab switching

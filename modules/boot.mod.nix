@@ -35,10 +35,12 @@ _: {
           efi.efiSysMountPoint = "/boot";
         };
 
-        kernelPackages = pkgs.linuxPackages_latest;
+        kernelPackages = pkgs.linuxPackages;
         kernelParams = [
           "nvidia_drm.modeset=1"
           "split_lock_detect=off"
+          "nvme_core.default_ps_max_latency_us=0"
+          "pcie_aspm=off"
         ];
         kernelModules = [
           "kvm-amd"

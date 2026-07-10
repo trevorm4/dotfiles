@@ -36,7 +36,17 @@ let
     );
 in
 {
-  imports = importDir ./modules;
+  imports = [ inputs.sway-ahk.nixosModules.default ] ++ importDir ./modules;
+
+  nixpkgs.overlays = [
+    inputs.llm-agents.overlays.shared-nixpkgs
+    (final: prev: {
+      hunk = inputs.hunk.packages.${final.system}.hunk;
+      migraine-diary = inputs.migraine-diary.packages.${final.system}.default;
+      etor = final.callPackage ./pkgs/etor.nix { };
+      sway-ahk = inputs.sway-ahk.packages.${final.system}.default;
+    })
+  ];
 
   hjem.users.trevor = {
     imports = [
