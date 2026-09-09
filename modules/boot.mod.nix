@@ -5,14 +5,13 @@ _: {
       lib,
       modulesPath,
       pkgs,
+      isWsl ? false,
       ...
     }:
     {
-      imports = [
-        (modulesPath + "/installer/scan/not-detected.nix")
-      ];
+      imports = lib.optional (!isWsl) (modulesPath + "/installer/scan/not-detected.nix");
 
-      boot = {
+      boot = lib.mkIf (!isWsl) {
         initrd = {
           kernelModules = [ "dm-snapshot" ];
           availableKernelModules = [
@@ -46,12 +45,12 @@ _: {
         ];
       };
 
-      fileSystems."/" = {
+      fileSystems."/" = lib.mkIf (!isWsl) {
         device = "/dev/mapper/vg0-nixos";
         fsType = "ext4";
       };
 
-      fileSystems."/boot" = {
+      fileSystems."/boot" = lib.mkIf (!isWsl) {
         device = "/dev/disk/by-uuid/0ECC-E769";
         fsType = "vfat";
         options = [
@@ -62,7 +61,7 @@ _: {
 
       nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
-      swapDevices = [
+      swapDevices = lib.mkIf (!isWsl) [
         { device = "/dev/vg0/swap"; }
       ];
     };

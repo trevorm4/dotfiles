@@ -8,6 +8,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -39,13 +43,36 @@
         ];
 
         flake = {
-          nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            specialArgs = { inherit inputs; };
-            modules = [
-              inputs.hjem.nixosModules.hjem
-              ./nixos.nix
-            ];
+          nixosConfigurations = {
+            nixos = inputs.nixpkgs.lib.nixosSystem {
+              system = "x86_64-linux";
+              specialArgs = {
+                inherit inputs;
+                isWsl = false;
+              };
+              modules = [
+                inputs.hjem.nixosModules.hjem
+                ./nixos.nix
+              ];
+            };
+
+            wsl = inputs.nixpkgs.lib.nixosSystem {
+              system = "x86_64-linux";
+              specialArgs = {
+                inherit inputs;
+                isWsl = true;
+              };
+              modules = [
+                inputs.hjem.nixosModules.hjem
+                inputs.nixos-wsl.nixosModules.default
+                ({ lib, ... }: {
+                  wsl.enable = true;
+                  networking.wireless.enable = lib.mkForce false;
+                  systemd.services.wpa_supplicant.enable = false;
+                })
+                ./nixos.nix
+              ];
+            };
           };
         };
       }
