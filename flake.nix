@@ -4,9 +4,12 @@
       "flakes"
       "nix-command"
     ];
+    extra-substituters = [ "https://niks3.numtide.com" ];
+    extra-trusted-public-keys = [ "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=" ];
   };
 
   inputs = {
+    llm-agents.url = "github:numtide/llm-agents.nix";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
@@ -69,6 +72,13 @@
                   wsl.enable = true;
                   networking.wireless.enable = lib.mkForce false;
                   systemd.services.wpa_supplicant.enable = false;
+                })
+                ({ inputs, ... }: {
+                  nixpkgs.overlays = [
+                    (final: prev: {
+                      llm-agents = inputs.llm-agents.packages.${final.system};
+                    })
+                  ];
                 })
                 ./nixos.nix
               ];

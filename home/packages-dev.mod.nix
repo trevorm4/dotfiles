@@ -3,7 +3,7 @@ _: {
     packages = with pkgs; [
       nixfmt
       noctalia-shell
-      opencode
+      llm-agents.opencode
       quickshell
       treefmt
       zellij
