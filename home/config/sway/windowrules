@@ -62,6 +62,7 @@ for_window [title="^PD2Trader:.*"] {
 assign [class="NoiseTorch"] workspace number 9
 assign [app_id="vesktop"] workspace number 3
 # Steam launcher + all Steam games → workspace 8 (matches Hyprland rule)
-assign [class="^(steam|steam_app_.*)$"] workspace number 8
+assign [class="steam"] workspace number 6
+assign [class="^steam_app_.*$"] workspace number 8
 
 mouse_warping container

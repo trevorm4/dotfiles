@@ -50,6 +50,7 @@ let
     update = "sudo pacman -Syu";
     wget = "wget -c ";
     wifi = "nmtui";
+    zj = "zellij";
   };
 in
 {

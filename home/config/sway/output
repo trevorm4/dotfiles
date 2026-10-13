@@ -3,5 +3,5 @@ default_border none
 gaps inner $gap
 gaps outer -$gap
 
-output DP-1 mode 1920x1080@144Hz
-output DP-2 mode 1920x1080@60Hz
+output "BNQ BenQ GW2480 Y8K0070301Q" mode 1920x1080@75Hz
+output "BNQ ZOWIE XL LCD T6L00798SL0" mode 1920x1080@144Hz

@@ -60,3 +60,5 @@ bindsym $mod+Shift+d [class="^game\\.exe$" title="Diablo II"] focus
 
 # Quick-hide/show overlay via scratchpad
 bindsym $mod+Shift+p [con_mark="pd2overlay"] scratchpad show, floating enable
+
+bindsym $mod+Shift+v wl-paste

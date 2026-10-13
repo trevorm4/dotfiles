@@ -1,4 +1,0 @@
-[".local/share/nvim-base"]
-    type = "git-repo"
-    url = "https://github.com/trevorm4/nvim-base.git"
-    refreshPeriod = "1h"

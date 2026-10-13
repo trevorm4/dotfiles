@@ -1,11 +1,11 @@
-workspace 1 output DP-2
-workspace 3 output DP-2
-workspace 5 output DP-2
-workspace 7 output DP-2
-workspace 9 output DP-2
+workspace 1 output "BNQ BenQ GW2480 Y8K0070301Q"
+workspace 3 output "BNQ BenQ GW2480 Y8K0070301Q"
+workspace 5 output "BNQ BenQ GW2480 Y8K0070301Q"
+workspace 7 output "BNQ BenQ GW2480 Y8K0070301Q"
+workspace 9 output "BNQ BenQ GW2480 Y8K0070301Q"
 
-workspace 2 output DP-1
-workspace 4 output DP-1
-workspace 6 output DP-1
-workspace 8 output DP-1
-workspace 10 output DP-1
+workspace 2 output "BNQ ZOWIE XL LCD T6L00798SL0"
+workspace 4 output "BNQ ZOWIE XL LCD T6L00798SL0"
+workspace 6 output "BNQ ZOWIE XL LCD T6L00798SL0"
+workspace 8 output "BNQ ZOWIE XL LCD T6L00798SL0"
+workspace 10 output "BNQ ZOWIE XL LCD T6L00798SL0"
