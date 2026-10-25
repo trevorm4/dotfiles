@@ -44,7 +44,8 @@ in
       hunk = inputs.hunk.packages.${final.system}.hunk;
       migraine-diary = inputs.migraine-diary.packages.${final.system}.default;
       etor = final.callPackage ./pkgs/etor.nix { };
-      sway-ahk = inputs.sway-ahk.packages.${final.system}.default;
+      pd2-trade = final.callPackage ./pkgs/pd2-trade.nix { };
+      sway-ahk = inputs.sway-ahk.packages.${final.stdenv.hostPlatform.system}.default;
     })
   ];
 

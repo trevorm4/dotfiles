@@ -6,5 +6,5 @@ set $up k
 set $right l
 
 set $term wezterm
-set $launcher noctalia-shell ipc call launcher toggle
+set $launcher noctalia msg panel-toggle launcher
 set $gap 5

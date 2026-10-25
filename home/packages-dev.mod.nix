@@ -4,8 +4,7 @@ _: {
       htop
       hunk
       nixfmt
-      noctalia-shell
-      opencode
+      noctalia
       quickshell
       treefmt
       unzip

@@ -7,6 +7,7 @@ _: {
       dust
       killall
       tmux
+      discord
       vesktop
       vim
       watchman

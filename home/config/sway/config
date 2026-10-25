@@ -5,15 +5,17 @@ include workspaces
 include windowrules
 include keybinds/*
 
+exec_always ~/.config/sway/scripts/apply-layout
+
 # Hide default sway bar completely - noctalia-shell provides its own
 bar {
     mode invisible
 }
 
-# Launch noctalia-shell at startup
-exec noctalia-shell
+# Launch noctalia at startup
+exec noctalia
 exec keyd-application-mapper -d
-exec vesktop
+exec discord
 
 # systemd integration: export Wayland and X11 env vars so systemd user services
 # (like clipboard-sync) know which displays to use and can authenticate.

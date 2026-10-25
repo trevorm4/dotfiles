@@ -1,5 +1,5 @@
 _: {
-  flake.hjemModules.pi = { pkgs, ... }: {
+  flake.hjemModules.llm = { pkgs, ... }: {
     packages = [ pkgs.llm-agents.pi ];
   };
 }

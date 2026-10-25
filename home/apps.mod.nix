@@ -3,6 +3,7 @@ _: {
     packages = with pkgs; [
       etor
       migraine-diary
+      pd2-trade
       vial
     ];
   };
