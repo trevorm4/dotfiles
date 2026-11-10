@@ -8,6 +8,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    systems.url = "github:nix-systems/default";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -28,6 +29,9 @@
     hunk = {
       url = "github:modem-dev/hunk";
       inputs.nixpkgs.follows = "nixpkgs";
+      # bun2nix's pinned nix-systems/default rev still lists x86_64-darwin,
+      # which nixpkgs 26.11 no longer supports
+      inputs.bun2nix.inputs.systems.follows = "systems";
     };
     llm-agents = {
       url = "github:numtide/llm-agents.nix";
