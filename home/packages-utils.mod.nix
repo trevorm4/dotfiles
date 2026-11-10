@@ -8,7 +8,6 @@ _: {
       killall
       tmux
       discord
-      vesktop
       vim
       watchman
       wezterm

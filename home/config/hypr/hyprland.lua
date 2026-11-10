@@ -64,7 +64,7 @@ hl.on("hyprland.start", function()
     -- noctalia provides the bar (sway: bar { mode invisible } + exec noctalia-shell)
     hl.exec_cmd("noctalia")
     hl.exec_cmd("keyd-application-mapper -d")
-    hl.exec_cmd("vesktop")
+    hl.exec_cmd("discord")
     hl.exec_cmd("wl-paste --watch xclip -selection clipboard -i")
 
     -- systemd integration: export Wayland and X11 env vars so systemd user
