@@ -6,6 +6,7 @@ _: {
       nixfmt
       noctalia
       quickshell
+      stylua
       treefmt
       unzip
       ydotool
