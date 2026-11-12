@@ -65,7 +65,12 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("noctalia")
     hl.exec_cmd("keyd-application-mapper -d")
     hl.exec_cmd("discord")
-    hl.exec_cmd("wl-paste --watch xclip -selection clipboard -i")
+    -- NOTE: no wl-paste/xclip bridge here — Hyprland syncs the XWayland
+    -- clipboard natively in both directions. The old one-way bridge formed a
+    -- feedback loop (Wayland -> xclip -> mirrored back -> repeat) that raced
+    -- real copies and left the clipboard empty (broke copying out of Proton
+    -- games). If clipboard persistence is ever needed, use wl-clip-persist
+    -- or cliphist instead.
 
     -- systemd integration: export Wayland and X11 env vars so systemd user
     -- services (like clipboard-sync) know which displays to use and can

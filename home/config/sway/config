@@ -21,6 +21,9 @@ exec discord
 # (like clipboard-sync) know which displays to use and can authenticate.
 exec systemctl --user set-environment XAUTHORITY=/home/trevor/.Xauthority
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DISPLAY
-exec wl-paste --watch xclip -selection clipboard -i
+# NOTE: wl-paste/xclip bridge removed — sway syncs the XWayland clipboard
+# natively; the bridge formed a feedback loop that emptied the clipboard
+# (broke copying out of Proton games). Use wl-clip-persist or cliphist if
+# clipboard persistence is ever needed.
 
 include /etc/sway/config.d/*
